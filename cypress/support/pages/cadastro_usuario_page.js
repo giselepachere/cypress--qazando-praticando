@@ -3,6 +3,7 @@
 export default {
     clicarBtnCadastrar(){
         cy.get('#btnRegister')
+           // .should('be.visible')
             .click()
     },
 // forma de validar uma mensagem
