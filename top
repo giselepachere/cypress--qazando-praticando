@@ -1,0 +1,112 @@
+[33mcommit 24c4ad73519cf40b3846f3e4216cb8accec2e44c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/create-pipeline-file[m[33m, [m[1;31morigin/feature/create-pipeline-file[m[33m)[m
+Author: giselepachere <gi.pachere@gmail.com>
+Date:   Wed Jun 25 15:21:44 2025 -0300
+
+    Correção pipeline 2
+
+[1mdiff --git a/.github/workflows/cypress-pipeline.yml b/.github/workflows/cypress-pipeline.yml[m
+[1mindex 96a7fdd..f455c47 100644[m
+[1m--- a/.github/workflows/cypress-pipeline.yml[m
+[1m+++ b/.github/workflows/cypress-pipeline.yml[m
+[36m@@ -3,7 +3,7 @@[m [mname: Run Basic Testes[m
+ [m
+ # em que momento vai ser exutada[m
+ on:[m
+[31m-  pull_resquest:   # comando para  executar[m
+[32m+[m[32m  pull_request:   # comando para  executar[m
+     branches: [master]   # qual branch será executado[m
+ [m
+ # Jobs -> o que vai ser feito nessa pipeline[m
+
+[33mcommit 5c3cd4aa1400cafcd133bced5948544c82bf5af3[m
+Author: giselepachere <gi.pachere@gmail.com>
+Date:   Wed Jun 25 15:18:37 2025 -0300
+
+    Correção pipeline
+
+[1mdiff --git a/.github/workflows/cypress-pipeline.yml b/.github/workflows/cypress-pipeline.yml[m
+[1mindex 6485398..96a7fdd 100644[m
+[1m--- a/.github/workflows/cypress-pipeline.yml[m
+[1m+++ b/.github/workflows/cypress-pipeline.yml[m
+[36m@@ -21,7 +21,7 @@[m [mjobs:[m
+ [m
+       # exemplo de execução no terminal  [m
+       - name: Instalar dependencias do projeto[m
+[31m-        run: echo Gisele Pachere[m
+[32m+[m[32m        run: npm install[m
+ [m
+       # execução e confirguração do projeto[m
+       - name: Run testes[m
+
+[33mcommit 8a4e7e3f1ba98bf9671a298e0f324717f856d166[m
+Author: giselepachere <gi.pachere@gmail.com>
+Date:   Wed Jun 25 15:07:30 2025 -0300
+
+    Criação do arquivo pipeline
+
+[1mdiff --git a/.github/workflows/cypress-pipeline.yml b/.github/workflows/cypress-pipeline.yml[m
+[1mindex c6ae674..6485398 100644[m
+[1m--- a/.github/workflows/cypress-pipeline.yml[m
+[1m+++ b/.github/workflows/cypress-pipeline.yml[m
+[36m@@ -13,9 +13,25 @@[m [mjobs:[m
+      # em que maq vai rodar os  meus testes[m
+     runs-on: ubuntu-latest   #ubuntu é o linux     [m
+ [m
+[31m-    #steps passo  passo para rodar os testes[m
+[32m+[m[32m    # steps passo  passo para rodar os testes[m
+     steps:[m
+[32m+[m[32m      # clone do projeto[m
+       - name: Checkout/Clone do projeto [m
+         uses: actions/checkout@v4[m
+[31m-        [m
+[32m+[m
+[32m+[m[32m      # exemplo de execução no terminal[m[41m  [m
+[32m+[m[32m      - name: Instalar dependencias do projeto[m
+[32m+[m[32m        run: echo Gisele Pachere[m
+[32m+[m
+[32m+[m[32m      # execução e confirguração do projeto[m
+[32m+[m[32m      - name: Run testes[m
+[32m+[m[32m        uses: cypress-io/github-action@v6[m
+[32m+[m[32m        with:[m
+[32m+[m[32m          record: True[m
+[32m+[m[32m        env:[m
+[32m+[m[32m          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}[m[41m    [m
+[41m+[m
+[41m+[m
+[41m+[m
+[41m+[m
+ [m
+
+[33mcommit 06edc9110a0fc321ee68b914fae974d5da1b9172[m
+Author: giselepachere <gi.pachere@gmail.com>
+Date:   Wed Jun 25 13:09:02 2025 -0300
+
+    Testes Login
+
+[1mdiff --git a/.github/workflows/cypress-pipeline.yml b/.github/workflows/cypress-pipeline.yml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..c6ae674[m
+[1m--- /dev/null[m
+[1m+++ b/.github/workflows/cypress-pipeline.yml[m
+[36m@@ -0,0 +1,21 @@[m
+[32m+[m[32m# nome da pipeline[m
+[32m+[m[32mname: Run Basic Testes[m
+[32m+[m
+[32m+[m[32m# em que momento vai ser exutada[m
+[32m+[m[32mon:[m
+[32m+[m[32m  pull_resquest:   # comando para  executar[m
+[32m+[m[32m    branches: [master]   # qual branch será executado[m
+[32m+[m
+[32m+[m[32m# Jobs -> o que vai ser feito nessa pipeline[m
+[32m+[m[32m# só teremos um job que é o de rodar os testes[m
+[32m+[m[32mjobs:[m[41m [m
+[32m+[m[32m  cypress-run:  # nome do meu job[m
+[32m+[m[32m     # em que maq vai rodar os  meus testes[m
+[32m+[m[32m    runs-on: ubuntu-latest   #ubuntu é o linux[m[41m     [m
+[32m+[m
+[32m+[m[32m    #steps passo  passo para rodar os testes[m
+[32m+[m[32m    steps:[m
+[32m+[m[32m      - name: Checkout/Clone do projeto[m[41m [m
+[32m+[m[32m        uses: actions/checkout@v4[m
+[32m+[m[41m        [m
+[32m+[m
