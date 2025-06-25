@@ -13,9 +13,25 @@ jobs:
      # em que maq vai rodar os  meus testes
     runs-on: ubuntu-latest   #ubuntu é o linux     
 
-    #steps passo  passo para rodar os testes
+    # steps passo  passo para rodar os testes
     steps:
+      # clone do projeto
       - name: Checkout/Clone do projeto 
         uses: actions/checkout@v4
-        
+
+      # exemplo de execução no terminal  
+      - name: Instalar dependencias do projeto
+        run: echo Gisele Pachere
+
+      # execução e confirguração do projeto
+      - name: Run testes
+        uses: cypress-io/github-action@v6
+        with:
+          record: True
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}    
+
+
+
+
 
